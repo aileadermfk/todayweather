@@ -1,20 +1,12 @@
+
 {
   "name": "SkyCast Pro",
-  "short_name": "SkyCastPro",
-  "start_url": ".",
+  "short_name": "SkyCast",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#3d7bff",
-  "theme_color": "#3d7bff",
+  "background_color": "#10131a",
+  "theme_color": "#4facfe",
   "icons": [
-    {
-      "src": "assets/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "assets/logo.svg", "sizes": "192x192", "type": "image/svg+xml" }
   ]
 }

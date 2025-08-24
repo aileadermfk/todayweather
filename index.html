@@ -1,124 +1,38 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#3d7bff">
-  <title>SkyCast Pro — Weather</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="assets/icon-192.png">
-  <link rel="stylesheet" href="styles.css">
-  <!-- Libraries -->
-  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script defer src="app.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkyCast Pro</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.json">
 </head>
 <body>
-<div id="app" class="app">
-  <div class="bg sky" id="animatedBg">
-    <div class="rain" id="rainFx"></div>
-    <div class="snow" id="snowFx"></div>
-  </div>
-
-  <header class="topbar">
-    <div class="brand">
-      <img src="assets/icon-192.png" alt="" class="logo">
-      <h1>SkyCast <span class="pro">PRO</span></h1>
-    </div>
-    <div class="controls">
-      <div class="search">
-        <input id="search" type="search" placeholder="Search city or place…" autocomplete="off">
-        <button id="micBtn" class="ghost" title="Voice search">🎤</button>
-        <ul id="suggestions" class="suggestions hidden"></ul>
-      </div>
-      <button id="useLocation" class="pill">Use Current Location</button>
-      <div class="toggle">
-        <span>°C</span>
-        <label class="switch">
-          <input type="checkbox" id="unitToggle"><span class="slider"></span>
-        </label>
-        <span>°F</span>
-      </div>
-      <button id="themeToggle" class="pill">Theme</button>
-      <button id="installBtn" class="pill">Install</button>
-    </div>
-  </header>
-
-  <section class="quickbar">
-    <div class="favorites">
-      <h3>Favorites</h3>
-      <div id="favList" class="chips"></div>
-    </div>
-    <button id="addFav" class="ghost">+ Add current</button>
-  </section>
-
-  <main class="grid">
-    <section class="card hero">
-      <div class="stats">
-        <div class="big">
-          <div id="temp" class="temp">--</div>
-          <div id="desc" class="desc">—</div>
-          <div id="place" class="place">—</div>
-        </div>
-        <div class="grid mini">
-          <div><span>Humidity</span><b id="humidity">--</b></div>
-          <div><span>Wind</span><b id="wind">--</b></div>
-          <div><span>Feels</span><b id="feels">--</b></div>
-          <div><span>UV</span><b id="uv">--</b></div>
-          <div><span>Sunrise</span><b id="sunrise">--</b></div>
-          <div><span>Sunset</span><b id="sunset">--</b></div>
-        </div>
-      </div>
-      <div class="iconwrap"><div id="icon" class="icon sun"></div></div>
-    </section>
-
-    <section class="card">
-      <h2>Weather Alerts</h2>
-      <div id="alerts" class="alerts empty">No active alerts.</div>
-    </section>
-
-    <section class="card">
-      <h2>Air Quality</h2>
-      <div class="aqi">
-        <div class="aqi-main"><b id="aqiVal">--</b> <span id="aqiLabel"></span></div>
-        <div class="chips" id="aqiParts"></div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2>Next 24 Hours</h2>
-      <div id="hourlyScroller" class="hourly"></div>
-      <canvas id="hourlyChart" height="120"></canvas>
-    </section>
-
-    <section class="card">
-      <h2>7‑Day Forecast</h2>
-      <div id="daily" class="days"></div>
-    </section>
-
-    <section class="card">
-      <h2>Radar & Layers</h2>
-      <div class="layerbar">
-        <select id="layerSelect">
-          <option value="precipitation_new">Precipitation</option>
-          <option value="clouds_new">Clouds</option>
-          <option value="temp_new">Temperature</option>
-          <option value="wind_new">Wind</option>
-        </select>
-        <button id="recenter" class="pill">Recenter</button>
-      </div>
-      <div id="map" class="map"></div>
-    </section>
-  </main>
-
-  <footer class="foot">
-    <div>Data: OpenWeather • PWA Offline Ready</div>
-    <div class="muted">Tip: press <kbd>/</kbd> to focus search • speak to search with the mic</div>
-  </footer>
+<div id="loading-screen">
+  <img src="assets/logo.svg" alt="Logo">
+  <h2>Loading SkyCast Pro...</h2>
 </div>
-
-<div id="toast" class="toast"></div>
-<script>if ('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));</script>
+<header>
+  <h1 data-translate="appName">SkyCast Pro</h1>
+  <button id="lang-toggle">EN/UR</button>
+  <button id="theme-toggle">🌙</button>
+</header>
+<main>
+  <section id="search">
+    <input type="text" id="city-input" placeholder="Enter city" />
+    <button id="search-btn">Search</button>
+    <button id="voice-btn">🎤</button>
+  </section>
+  <section id="weather">
+    <h2 data-translate="temp">Temperature</h2>
+    <p id="temperature">--</p>
+    <p><span data-translate="humidity">Humidity</span>: <span id="humidity">--</span></p>
+    <p><span data-translate="wind">Wind Speed</span>: <span id="wind">--</span></p>
+    <p><span data-translate="uv">UV Index</span>: <span id="uv">--</span></p>
+  </section>
+  <canvas id="hourlyChart" width="400" height="200"></canvas>
+</main>
+<script src="js/app.js"></script>
 </body>
 </html>
