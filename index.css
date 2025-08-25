@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { background: linear-gradient(160deg,#0b1020,#131a33 50%,#0b1020); color: #e8eeff; font-family: system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, sans-serif; }

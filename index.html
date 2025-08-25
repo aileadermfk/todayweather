@@ -1,38 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SkyCast Pro</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="manifest" href="manifest.json">
-</head>
-<body>
-<div id="loading-screen">
-  <img src="assets/logo.svg" alt="Logo">
-  <h2>Loading SkyCast Pro...</h2>
-</div>
-<header>
-  <h1 data-translate="appName">SkyCast Pro</h1>
-  <button id="lang-toggle">EN/UR</button>
-  <button id="theme-toggle">🌙</button>
-</header>
-<main>
-  <section id="search">
-    <input type="text" id="city-input" placeholder="Enter city" />
-    <button id="search-btn">Search</button>
-    <button id="voice-btn">🎤</button>
-  </section>
-  <section id="weather">
-    <h2 data-translate="temp">Temperature</h2>
-    <p id="temperature">--</p>
-    <p><span data-translate="humidity">Humidity</span>: <span id="humidity">--</span></p>
-    <p><span data-translate="wind">Wind Speed</span>: <span id="wind">--</span></p>
-    <p><span data-translate="uv">UV Index</span>: <span id="uv">--</span></p>
-  </section>
-  <canvas id="hourlyChart" width="400" height="200"></canvas>
-</main>
-<script src="js/app.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content="Advanced Weather App: search any city, hourly & 7-day forecast, air quality, UV. Built on Open-Meteo." />
+    <title>SkyScope • Advanced Weather</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
 </html>
